@@ -21,7 +21,6 @@ function submitPaymentInfo(evt) {
 
   if (curPayment) {
     paymentId += 1;
-
     allPayments['payment' + paymentId] = curPayment;
 
     appendPaymentTable(curPayment);

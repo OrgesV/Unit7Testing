@@ -1,10 +1,10 @@
 describe("Servers test (with setup and tear-down)", function() {
 
   beforeEach(function () {
-        serverNameInput.value='Alice';
+      serverNameInput.value='Alice';
   });
 
-  it('should add a new server to allServers on submitServerInfo()', function () {
+  it('Should add a new server to allServers on submitServerInfo()', function () {
 
     submitServerInfo();
 
@@ -12,9 +12,14 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(allServers['server' + serverId].serverName).toEqual('Alice');  
     
   });
-
+  it("Should update the server table", function(){
+    submitServerInfo();
+    expect(serverTbody.childElementCount).toEqual(1)
+  })
   afterEach(function() {
     // teardown logic
-    allServers = []; 
+    serverId = 0;
+    serverTbody.innerHTML = '';
+    allServers = {}; 
   });
 });
